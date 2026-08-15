@@ -30,7 +30,7 @@ if [ "$#" -eq 1 ]; then
 else
 	PACKAGE_URL="$(
 		curl -fsSL "https://api.github.com/repos/${REPOSITORY}/releases/tags/${RELEASE_TAG}" |
-		sed -n 's/^[[:space:]]*"browser_download_url":[[:space:]]*"\([^"]*Linux-x86_64\.tar\.gz\)".*/\1/p' |
+		sed -n 's/^[[:space:]]*"browser_download_url":[[:space:]]*"\([^"]*Linux-\(amd64\|x86_64\)\.tar\.gz\)".*/\1/p' |
 		head -n 1
 	)"
 fi
