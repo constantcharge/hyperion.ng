@@ -73,7 +73,7 @@ systemctl start "${SERVICE_NAME}"
 sleep 2
 if curl -fsS -D - -o /dev/null http://127.0.0.1:8090/ | grep -qi '^Content-Type: text/html'; then
 	echo "Hyperion Web UI is serving HTML correctly."
-	echo "Open http://$(hostname -I | awk '{print $1}'):8090/"
+	echo "Open http://<LibreELEC-IP>:8090/ from another device."
 else
 	echo "Hyperion started, but the Web UI MIME-type check failed."
 	echo "Your previous installation is backed up at ${BACKUP_DIRECTORY}."
