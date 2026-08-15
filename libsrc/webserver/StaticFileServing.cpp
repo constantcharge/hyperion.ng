@@ -36,9 +36,50 @@ QByteArray resolveMimeType(const QString &fileName, const QMimeDatabase *mimeDb)
 	}
 
 	const QString suffix = QFileInfo(fileName).suffix().toLower();
+	if (suffix == QStringLiteral("html") || suffix == QStringLiteral("htm"))
+	{
+		return QByteArrayLiteral("text/html; charset=utf-8");
+	}
+
+	if (suffix == QStringLiteral("css"))
+	{
+		return QByteArrayLiteral("text/css; charset=utf-8");
+	}
 	if (suffix == QStringLiteral("js") || suffix == QStringLiteral("mjs") || suffix == QStringLiteral("cjs"))
 	{
 		return QByteArrayLiteral("text/javascript");
+	}
+	if (suffix == QStringLiteral("json") || suffix == QStringLiteral("map"))
+	{
+		return QByteArrayLiteral("application/json");
+	}
+	if (suffix == QStringLiteral("png"))
+	{
+		return QByteArrayLiteral("image/png");
+	}
+	if (suffix == QStringLiteral("svg"))
+	{
+		return QByteArrayLiteral("image/svg+xml");
+	}
+	if (suffix == QStringLiteral("eot"))
+	{
+		return QByteArrayLiteral("application/vnd.ms-fontobject");
+	}
+	if (suffix == QStringLiteral("otf"))
+	{
+		return QByteArrayLiteral("font/otf");
+	}
+	if (suffix == QStringLiteral("ttf"))
+	{
+		return QByteArrayLiteral("font/ttf");
+	}
+	if (suffix == QStringLiteral("woff"))
+	{
+		return QByteArrayLiteral("font/woff");
+	}
+	if (suffix == QStringLiteral("woff2"))
+	{
+		return QByteArrayLiteral("font/woff2");
 	}
 
 	return QByteArrayLiteral("application/octet-stream");
